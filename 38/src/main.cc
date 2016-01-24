@@ -54,20 +54,6 @@ int get_int(vector<int> v)
   return i;
 }
 
-bool is_prime(int i)
-{
-  if(i == 0 || i == 1)
-    return false;
-  if(i == 2)
-    return true;
-  for(int j = 2; j*j <= i; j++)
-  {
-    if(i % j == 0)
-      return false;
-  }
-  return true;
-}
-
 bool is_pandigital(vector<int> v)
 {
   if(v.size() != 9) return false;
