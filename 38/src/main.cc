@@ -9,7 +9,6 @@ int main(int argc, char **argv)
     auto v = get_multiples(i);
     if(is_pandigital(v)) {
       int j = get_int(v);
-      printf("%9i --> %9i\n", i, j);
       if(max < j)
         max = j;
     }
