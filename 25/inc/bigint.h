@@ -24,7 +24,7 @@ protected:
 			out = new ushort[1];
 			*count = 1;
 			out[0] = 0;
-			return out;	
+			return out;
 		}
 		*count = 0;
 		int size = EXPAND_SIZE;
