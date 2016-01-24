@@ -4,29 +4,30 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  vector<int> list;
-  int count = 0;
-  for(int i = 1; i < 1000000; i++)
+  int j = 0;
+  int total = 0;
+  for(int i = 10; i < 1000000; i++)
   {
-    vector<int> v = get_digits(i);
-    bool circular = true;
-    for(int j = 0; j < v.size(); j++)
-    {
-      if(!is_prime(get_int(v)))
-        circular = false;
-      rotate(&v);
-    }
-    if(circular)
-    {
-      for(int k = 0; k < v.size(); k++)
-      {
-        if(find(list.begin(), list.end(), get_int(v)) == list.end())
-          list.push_back(get_int(v));
-        rotate(&v);
+    if(!is_prime(i)) continue;
+    auto vl = get_digits(i);
+    auto vr = get_digits(i);
+    bool p = true;
+    while(vl.size() > 0 || vr.size() > 0) {
+      if(!is_prime(get_int(vl)) || !is_prime(get_int(vr))) {
+        p = false;
+        break;
       }
+      truncate_l(&vl);
+      truncate_r(&vr);
     }
+    if(p) {
+      total += i;
+      j++;
+    }
+    if(j == 12)
+      break;
   }
-  cout << list.size() << endl;
+  cout << j << " " << total << endl;
 	return 0;
 }
 
@@ -53,19 +54,6 @@ int get_int(vector<int> v)
   return i;
 }
 
-void rotate(vector<int> *v)
-{
-  vector<int>::iterator it = v->begin();
-  int t = *it;
-  for(; it != v->end(); it++)
-  {
-    if(it+1 != v->end())
-      *it = *(it+1);
-    else
-      *it = t;
-  }
-}
-
 bool is_prime(int i)
 {
   if(i == 0 || i == 1)
@@ -78,4 +66,20 @@ bool is_prime(int i)
       return false;
   }
   return true;
+}
+
+void truncate_l(vector<int> *v)
+{
+  if(v->size() <= 0)
+    return;
+  auto iter = v->end() - 1;
+  v->erase(iter);
+}
+
+void truncate_r(vector<int> *v)
+{
+  if(v->size() <= 0)
+    return;
+  auto iter = v->begin();
+  v->erase(iter);
 }

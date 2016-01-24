@@ -11,7 +11,8 @@ using namespace std;
 
 vector<int> get_digits(int i);
 int get_int(vector<int> v);
-void rotate(vector<int> *v);
 bool is_prime(int i);
+void truncate_l(vector<int> *v);
+void truncate_r(vector<int> *v);
 
 #endif
