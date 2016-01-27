@@ -9,9 +9,8 @@
 
 using namespace std;
 
-vector<int> get_multiples(int i);
-vector<int> get_digits(int i);
-int get_int(vector<int> v);
-bool is_pandigital(vector<int> v);
+vector<int> get_digits(long i);
+long get_int(vector<int> v);
+bool is_pandigital(vector<int> v, int j);
 
 #endif
