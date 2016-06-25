@@ -2,8 +2,6 @@
 
 using namespace std;
 
-// 9951191
-
 int main(int argc, char **argv)
 {
   vector<long> primes;
