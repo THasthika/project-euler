@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 )
 
@@ -30,7 +31,7 @@ func main() {
 	curMax = 0
 	curNum = 0
 
-	num := 10000
+	num := 100000
 	LIMIT := num * 100
 
 	for ; num < LIMIT; num++ {
@@ -86,6 +87,10 @@ func allPatterns(s []rune, j int, limit int, pCurMax *int, pCurNum *int) {
 		if len(arr) > 0 && len(arr) > *pCurMax {
 			*pCurMax = len(arr)
 			*pCurNum = arr[0]
+			if *pCurMax == 8 {
+				fmt.Printf("\nResult: %v %v\n", *pCurMax, *pCurNum)
+				os.Exit(0)
+			}
 		}
 	}
 
