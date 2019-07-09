@@ -59,29 +59,29 @@ func findAnswer(n int64) int64 {
 
 func main() {
 
-	// res := findAnswer(600851475143)
-	// fmt.Println(res)
+	res := findAnswer(600851475143)
+	fmt.Println(res)
 
-	var t int
-	_, err := fmt.Scanf("%d", &t)
+	// var t int
+	// _, err := fmt.Scanf("%d", &t)
 
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	for t > 0 {
-		var n int64
-		_, err = fmt.Scanf("%d", &n)
+	// for t > 0 {
+	// 	var n int64
+	// 	_, err = fmt.Scanf("%d", &n)
 
-		if err != nil {
-			panic(err)
-		}
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
 
-		res := findAnswer(n)
+	// 	res := findAnswer(n)
 
-		fmt.Println(res)
+	// 	fmt.Println(res)
 
-		t--
-	}
+	// 	t--
+	// }
 
 }
