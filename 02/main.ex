@@ -18,7 +18,7 @@ defmodule Memoizer do
     GenServer.call(pid, {:set, {k, v}})
   end
 
-  ## GENSERVER CLASSBACKS
+  ## GENSERVER CALLBACKS
   def init(:ok) do
     {:ok, %{0 => 1, 1 => 1}}
   end

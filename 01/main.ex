@@ -1,9 +1,12 @@
 defmodule Prog do
 
-    @limit 1000
-
-    def run() do
-        recur(@limit-1)
+    def run(n \\ 1000) do
+        case n do
+            x when x <= 0 ->
+                0
+            _ ->
+                recur(n - 1)
+        end
     end
 
     defp recur(n, t \\ 0)
@@ -21,3 +24,35 @@ defmodule Prog do
         end
     end
 end
+
+defmodule Solution do
+
+    def main() do
+        t = IO.gets("") |> String.trim |> String.to_integer
+        run_test_case(t)
+    end
+
+    defp run_test_case(t) when t <= 0 do
+        :ok
+    end
+    defp run_test_case(t) do
+        n = IO.gets("") |> String.trim |> String.to_integer
+        a = Prog.run(n)
+        IO.puts(a)
+        run_test_case(t - 1)
+    end
+
+end
+
+array_length = IO.read(:stdio, :line)
+array = IO.read(:stdio, :line)
+
+array_length
+    |> String.trim
+    |> String.to_integer
+    |> IO.puts
+
+array
+    |> String.split(" ")
+    |> Enum.map(fn n -> String.to_integer(n) end)
+    |> IO.inspect
